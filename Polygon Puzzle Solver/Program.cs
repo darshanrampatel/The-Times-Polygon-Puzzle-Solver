@@ -10,11 +10,8 @@ namespace Polygon_Puzzle_Solver
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("The Time's Polygon Puzzle Solver");
             var allLetters = "APISTNC"; // excluding central letter
-            var centralLetter = "Y";
-            allLetters = "LICAONCMO";
-            centralLetter = "S";
+            var centralLetter = "Y";           
             allLetters += centralLetter; // add back central letter
             var minLetters = 4;
             var maxLetters = allLetters.Length + centralLetter.Length;
@@ -36,6 +33,8 @@ namespace Polygon_Puzzle_Solver
                 .OrderBy(w => w);
             var foundWords = new List<string>();
             var tagger = new MaxentTagger(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "english-left3words-distsim.tagger"));
+            Console.Clear();
+            Console.WriteLine("The Times' Polygon Puzzle Solver");
             foreach (var word in results)
             {
                 var taggedString = tagger.tagString(word);
